@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <sys/socket.h>
-
+#ifdef _WIN32
+    #include <winsock2.h>
+#endif
 int main() {
     // 1. Chiediamo al sistema operativo un socket TCP (IPv4)
     int sockfd = socket(AF_INET, SOCK_STREAM, 0);
